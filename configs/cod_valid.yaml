@@ -1,6 +1,6 @@
 # Data Settings
 phase: valid
-pickle_file_path: ./Dataset/cod/cod10k_pickle.pkl
+pickle_file_path: ./Dataset/cod/R2C7K_pickle.pkl
 model_weight: ./ckpt/best_model.pth
 snapshot_path: ./ckpt
 save_seg_img_path: ./ckpt/predicted_masks
