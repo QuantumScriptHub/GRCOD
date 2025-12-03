@@ -2,7 +2,7 @@ import pickle
 import os
 
 pkl_paths = [
-    'cod/cod10k_pickle.pkl',
+    'cod/R2C7K_pickle.pkl',
 ]
 
 for task_pkl in pkl_paths:
