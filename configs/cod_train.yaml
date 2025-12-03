@@ -1,6 +1,6 @@
 # Data Settings
 phase: train
-pickle_file_path: ./Dataset/cod/cod10k_pickle.pkl
+pickle_file_path: ./Dataset/cod/R2C7K_pickle.pkl
 snapshot_path: ./ckpt/
 
 # Training Settings
