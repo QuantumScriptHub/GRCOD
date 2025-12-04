@@ -6,23 +6,19 @@
 ![Static Badge](https://img.shields.io/badge/welcome-green?style=flat&label=PRs&labelColor=black&color=green)
 ![Static Badge](https://img.shields.io/badge/Python-green?style=flat&label=Language&labelColor=black&color=green)
 
-## 🎮 [Appendix](https://github.com/QuantumScriptHub/simple-diffusion/blob/main/denoising-diffusion-pytorch/images/supp.pdf)
-Since our GRCOD is the first generative approach for Ref-COD, there are no existing generative methods available for direct comparison. Therefore, following the standard idea of fine-tuning Stable Diffusion, we design another generative baseline for reference, in order to better highlight the efficiency and robustness of GRCOD. Please refer to the [supplementary material](https://github.com/QuantumScriptHub/simple-diffusion/blob/main/denoising-diffusion-pytorch/images/supp.pdf) for details. 
+## 🎮 [Appendix](https://github.com/QuantumScriptHub/GRCOD/blob/main/data/ICME2025_Appendix.pdf)
+Since our GRCOD is the first generative approach for Ref-COD, there are no existing generative methods available for direct comparison. Therefore, following the standard idea of fine-tuning Stable Diffusion, we design another generative baseline for reference, in order to better highlight the efficiency and robustness of GRCOD. Please refer to the [supplementary material](https://github.com/QuantumScriptHub/GRCOD/blob/main/data/ICME2025_Appendix.pdf) for details. 
 
 In our supplementary materials, you will find a more detailed theoretical analysis of generative Ref-COD approach, along with comprehensive experimental details and comparisons. Make sure not to miss it!
 
 ##  📢 Overview
 <p align="justify">
-Preserving the edge details of salient objects and promoting the alignment and fusion of cross-modal features have consistently been two primary objectives of multi-modal salient object detection (MSOD), which typically integrates depth or thermal modalities. Recently, with the remarkable success of diffusion models in the field of image generation, several studies have proposed a novel paradigm that reformulates RGB SOD or MSOD as a conditional mask-generation process powered by diffusion models. These methods leverage an iterative denoising process to progressively refine predictions under the guidance of salient feature conditions, thereby enhancing the edge details of the generated salient objects. 
-However, existing diffusion-based MSOD models typically adopt backbone networks derived from pretrained Stable Diffusion architectures.
-While these models can leverage the visual priors embedded in the pretrained weights to generate more refined salient objects, the high computational demands and large-scale architecture of Stable Diffusion make it clearly unsuitable for practical application scenarios.
-Therefore, to address the practical demands of the MSOD task, including reducing model complexity, enhancing representational capacity, improving inference efficiency, and mitigating incorrect segmentations, we propose a straightforward and lightweight conditional diffusion architecture, complemented by a multi-modal feature rectification and fusion module as well as customized training and sampling strategies.
-Comprehensive experiments on several MSOD datasets demonstrate that a simple yet efficient diffusion model can achieve state-of-the-art performance in both RGB-D SOD and RGB-T SOD while maintaining acceptable inference time. Notably, when extended to RGB-D salient instance segmentation, our model achieves competitive performance, setting new benchmarks for this challenging task.
+Existing Referring Camouflaged Object Detection (Ref-COD) methods predominantly rely on Convolutional Neural Networks (CNNs) or Vision Transformers (ViTs). Adhering to a discriminative pixel-wise classification paradigm, these models often struggle with limited generalization capabilities when confronted with challenging camouflaged datasets. In this paper, we present Generative Referring Camouflaged Object Detection (GRCOD) to address these limitations. Initially, GRCOD employs a robust pre-trained vision backbone to extract latent representations for both the camouflaged image and the corresponding ground truth mask. Subsequently, guided by a reference feature aggregation network (RFAN), a lightweight projection module learns the generative process from the image to the mask within the latent space. Finally, the model utilizes the pre-trained vision backbone to decode the predicted latent mask representation back into the image space, yielding the final segmentation mask for the camouflaged object. The design of GRCOD significantly reduces the number of trainable parameters, thereby mitigating the risk of overfitting. Furthermore, the effective utilization of pre-trained priors substantially enhances the model's generalization capability. Extensive experiments on standard benchmarks demonstrate that GRCOD significantly outperforms existing discriminative state-of-the-art methods.
 </p>
 
 ## ⭐ Architecture
 <p align="center">
-    <img src="denoising-diffusion-pytorch/images/simplediffusion.jpg" alt="Architecture" />
+    <img src="https://github.com/QuantumScriptHub/GRCOD/blob/main/data/GRCOD.png" alt="Architecture" />
 </p>
 
 <p align="justify">
