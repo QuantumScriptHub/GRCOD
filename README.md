@@ -53,23 +53,17 @@ You can click the link to download them and proceed directly with inference.
 #### Training
 
 ```shell
-accelerate launch train.py --config config/model.yaml --num_epoch=150 --batch_size=32 --num_workers=4 --results_folder './results'
+python train.py --config ./configs/cod_train.yaml
 ```
 
 #### Inference 
 ```shell
-accelerate launch sample.py \
-  --config config/model.yaml \
-  --results_folder ${RESULT_SAVE_PATH} \
-  --checkpoint ${CHECKPOINT_PATH} \
-  --num_sample_steps 10 \
-  --target_dataset NJU2K \
-  --time_ensemble
+python valid.py --config ./configs/cod_valid.yaml
 ```
 
 ## 💻 Testing on your images
 ### 📷 Prepare images
-If you have images at hand, skip this step. Otherwise, download a few images from [Here](https://pan.baidu.com/s/1o-kOaDVqjV_druBHjD3NAA).
+If you have images at hand, skip this step. Otherwise, download a few images from [Here](https://pan.baidu.com/share/init?surl=LHdqpD3w24fcLb_dbR6DyA).
 
 
 ## 🎫 License
