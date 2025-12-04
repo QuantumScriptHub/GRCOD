@@ -22,28 +22,22 @@ Existing Referring Camouflaged Object Detection (Ref-COD) methods predominantly 
 </p>
 
 <p align="justify">
-The architecture design of our SimpleDiffusion. It consists of an Adaptive Cross-Modal Fusion Conditional Network for extracting multi-scale features as conditions, and a Latent Denoising Network for recovering clear mask predictions from the noised mask.
+We use the pre-trained <a href="https://github.com/Stability-AI/stablediffusion"> Stable Diffusion Variational Auto-Encoder</a> to abtain the latent representation of input images and reconstruct the predicted segmentation mask from the latent space. 
+For the reconstruction capability of SD VAE, please check the <a href="https://github.com/QuantumScriptHub/GRCOD/blob/main/data/ICME2025_Appendix.pdf">supplementary material</a>. The latent projection model was purely developed on CNN, and does not contain down-sampling layers to prevent information loss.
+The figure above presents the detailed architecture of our GRCOD model, which comprises key components such as an Image Encoder, Image Decoder, Reference Feature Aggregation Network, and Latent Projection Module. These modules are designed to extract and aggregate features from the reference images, and then fuse and interact them with the features of the camouflaged target. In this way, the model is guided to generate target masks in the camouflaged image that are consistent with the characteristics of the reference features.
 </p>
 
 ##  🚀 Modest Surprise
-<p align="center">
-    <img src="denoising-diffusion-pytorch/images/visulization.jpg" alt="Other Result" />
-</p>
-
 <p align="justify">
-The comparison results in the figure above, from left to right, are Image, Depth, GT, Ours, CalibNet, M2For, and RDPNet. Clearly, our SimpleDiffusion not only achieves excellent detection results in the RGB-D salient object generation domain but also delivers outstanding segmentation performance in RGB-D instance segmentation.
+In extensive experiments, we further observe that our model exhibits strong generalization capability. Although we do not adopt the traditional denoising process of diffusion models, we can still effectively exploit the visual priors of the pretrained VAE in Stable Diffusion. As a result, the generalization ability of our model not only matches that of models obtained by directly fine-tuning Stable Diffusion, but its inference efficiency is also improved by approximately an order of magnitude. Therefore, we argue that, among generative approaches, GRCOD is not only state-of-the-art at present, but is also likely to remain competitive for a considerable period of time, as it is carefully designed to balance both segmentation quality and inference efficiency for Ref-COD.
 </p>
 
 ## ⬇ Datasets
-**All datasets are available in public**.
-* Download the LFSD from [Here](https://www.eecis.udel.edu/~nianyi/LFSD.htm)
-* Download the NJUD from [Here](https://pan.baidu.com/s/1o-kOaDVqjV_druBHjD3NAA)
-* Download the NLPR from [Here](https://pan.baidu.com/s/1pocKI_KEvqWgsB16pzO6Yw)
-* Download the DUTLF from [Here](https://pan.baidu.com/s/1mhHAXLgoqqLQIb6r-k-hbA)
-* Download the SIP from [Here](https://pan.baidu.com/s/14VjtMBn0_bQDRB0gMPznoA)
-* Download the VT5000 from [Here](https://pan.baidu.com/s/196S1GcnI56Vn6fLO3oXb5Q) with password:y9jj
-* Download the VT821 from [Here](https://drive.google.com/file/d/0B4fH4G1f-jjNR3NtQUkwWjFFREk/view?resourcekey=0-Kgoo3x0YJW83oNSHm5-LEw)
-* Download the VT1000 from [Here](https://drive.google.com/file/d/1NCPFNeiy1n6uY74L0FDInN27p6N_VCSd/view)
+**Download  [R2C7K dataset](https://pan.baidu.com/share/init?surl=LHdqpD3w24fcLb_dbR6DyA) with access code 2013 on Baidu Netdisk.**
+The following figure shows examples from the R2C7K dataset. Note that, in the Camo subset, the camouflaged objects are overlaid with their annotations in orange.
+<p align="center">
+    <img src="https://github.com/QuantumScriptHub/GRCOD/blob/main/data/r2c7k.png" alt="Dataset" />
+</p>
   
 ## 🛠️  Dependencies
 ```bash
